@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-
+    <title>Tatars zhratva</title>
 </head>
 
 <body>
@@ -19,22 +19,22 @@
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse text-right" id="navcol-1">
                 <ul class="nav navbar-nav text-right">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">ссылка</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">ссылка</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">ссылка</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#id1">Рестораны</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#id2">Меню</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#id3">Главная</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="carousel slide" data-ride="carousel" id="carousel-1">
+    <div class="carousel slide" data-ride="carousel" id="carousel-1" >
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active"><img class="w-100 d-block"
                     src="https://i.kym-cdn.com/photos/images/original/001/497/002/38c.png" alt="Slide Image"></div>
             <div class="carousel-item"><img class="w-100 d-block"
-                    src="https://www.meme-arsenal.com/memes/823caebe8e90bce02518aad697412870.jpg" alt="Slide Image">
+                    src="https://cs9.pikabu.ru/post_img/2017/04/05/7/1491391808148129732.png" alt="Slide Image">
             </div>
             <div class="carousel-item"><img class="w-100 d-block"
-                    src="https://www.meme-arsenal.com/memes/c86d8ce6b3f97a3c806bf2ac5237a309.jpg" alt="Slide Image">
+                    src="https://cs11.pikabu.ru/post_img/2020/02/28/7/1582887073150656389.webp" alt="Slide Image">
             </div>
         </div>
         <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span
@@ -67,7 +67,7 @@
                             сказал, что это эчпочмак. Я отломил кусочек, положил его в рот и монда ките бу малай, шундый
                             тэмле булды бу эчпочмак, мин чэйни-чэйни, шулай тэмлэп-тэмлэп сот белэн эчэ-эчэ арып беттем,
                             аннары кикереп усырып жибэрдем дэ йокларга яттым</p>
-                        <footer class="blockquote-footer">Someone famous</footer>
+                        <footer class="blockquote-footer">Андрей мыловар </footer>
                     </blockquote>
                 </div>
                 <div class="col-md-4">
@@ -81,7 +81,7 @@
         </div>
     </div>
     <hr>
-    <div>
+    <div id="id1">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 " style="">
@@ -121,7 +121,7 @@
                             <div class="col-md-6 mb-3">
                                 <button class="btn btn-primary" onclick="search()" type="submit">Найти</button>
                             </div>
-
+                            
                         </div>
 
 
@@ -155,6 +155,8 @@
                                 else {
                                     // array api
                                     var array = JSON.parse(xhr.responseText);
+                                    array = array.filter((item) => item.rate != null).sort(function (prev, next) { return next.rate - prev.rate; }).slice(0, 20);
+
 
                                     for (var i = 0; i < array.length; i++) {
                                         // тут должна быть реализована функция с ценами, но что-то нет
@@ -163,7 +165,7 @@
                                     }
 
                                 }
-                                
+
                                 function search() {
                                     var Okrug = document.getElementById("Okrug").value;
                                     var area = document.getElementById("area").value;
@@ -181,7 +183,7 @@
                                         for (var i = 0; i < array.length; i++) {
                                             if (array[i]["admArea"] == Okrug) {
 
-                                                document.write("<button type='button' id="+ array[i]["id"] + "   onclick='price()' class='btn btn-outline-secondary'>" + array[i]["name"] + "<br>" + array[i]["address"] + "<br>" + array[i]["rate"] + "<br>" + "</button>");
+                                                document.write("<button type='button' id=" + array[i]["id"] + "   onclick='price()' class='btn btn-outline-secondary'>" + array[i]["name"] + "<br>" + array[i]["address"] + "<br>" + array[i]["rate"] + "<br>" + "</button>");
                                             }
                                         }
                                     }
@@ -205,9 +207,11 @@
                                 }
                                 let row;
                                 let select = document.getElementById("table");
-                                select.querySelectorAll("button").forEach(element=>{element.onclick=function(){
-                                row = array.find(item=>item.id==element.id);//присваивание выбранного элемента на кнопку(не работает)
-                                }})
+                                select.querySelectorAll("button").forEach(element => {
+                                    element.onclick = function () {
+                                        row = array.find(item => item.id == element.id);//присваивание выбранного элемента на кнопку(не работает)
+                                    }
+                                })
                                 function price(price1, price2, price3, price4, price5, price6, price7, price8, price9, price10) {
                                     //вывод 
                                 }
@@ -219,7 +223,7 @@
         </div>
     </div>
     </div>
-    <div>
+    <div id="id2">
         <div class="sets justify-content-center align-content-center flex-wrap d-flex">
             <div class="row">
                 <div class="col-md-12 text-center"><small class="text-center" style="font-size: 30px;">Меню</small>
@@ -236,8 +240,8 @@
                         <h4 class="card-title">Эчпочмак</h4>
                         <p class="card-text">Изысканный эчпочмак по старинному рецепту твоей татарской прабабушки. Из
                             натуральной говядины, с любовью замешенным тестом, мелко порезанным луком, картошкой и
-                            специями. Ощути Татарстан в каждом новом укусе!</p> <span>100rub</span><button class="btn btn-primary"
-                            type="button">Button</button>
+                            специями. Ощути Татарстан в каждом новом укусе!</p><button
+                            class="btn btn-primary" type="button">75 rub</button>
 
                     </div>
                 </div>
@@ -251,7 +255,7 @@
                         <p class="card-text">Хочешь чего-нибудь сладкого к чаю? Попробуй наш фирменный чак-чак!
                             Идеальные куски теста похожие друг на друга как братья близнецы искупавшиеся в горячей
                             маслянной ванне, а затем прыгнувшие в бассейн с медом до полного застывания.</p><button
-                            class="btn btn-primary" type="button">Button</button>
+                            class="btn btn-primary" type="button">100 rub</button>
                     </div>
                 </div>
                 <div class="card">
@@ -264,7 +268,7 @@
                             детстве? Наши техники воссоздали химическую формулу маминой любви и добавляют его в каждую
                             порцию вашего любимого супа. Отборная куриная грудка идет на приготовление бульона, а ее
                             куриные собратья завидуют ей, ведь только ее отобрали среди всех прочих кандидатов на наш
-                            суп!</p><button class="btn btn-primary" type="button">Button</button>
+                            суп!</p><button class="btn btn-primary" type="button">200 rub</button>
                     </div>
                 </div>
 
@@ -272,98 +276,102 @@
             <div class="card-group">
                 <div class="card">
                     <div class="img"
-                        style="background-image: url(https://kopilka-kulinara.ru/upload/information_system_52/4/8/3/item_483/item_483.jpg)">
+                        style="background-image: url(https://cdn.tveda.ru/thumbs/d25/d253b5dcaada8d12f97a06faec2131f0/2f1889de6feffd3473b20fd5d5ff5006.jpg)">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Эчпочмак</h4>
-                        <p class="card-text">Изысканный эчпочмак по старинному рецепту твоей татарской прабабушки. Из
-                            натуральной говядины, с любовью замешенным тестом, мелко порезанным луком, картошкой и
-                            специями. Ощути Татарстан в каждом новом укусе!</p><button class="btn btn-primary"
-                            type="button">Button</button>
+                        <h4 class="card-title">Перемячи</h4>
+                        <p class="card-text">Как эчпочмак, только не эчпочмак. И еще картошки нет.</p><button
+                            class="btn btn-primary" type="button">120 rub</button>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="img"
-                        style="background-image: url(https://scontent-lhr8-1.xx.fbcdn.net/v/t1.0-9/26166784_296920390713244_1777290288629020279_n.jpg?_nc_cat=102&_nc_sid=dd9801&_nc_ohc=iFOeQXp3r5YAX-aLN0L&_nc_ht=scontent-lhr8-1.xx&oh=e5776e0d88ac57e17bd2172e0316c445&oe=5F1D5B08)">
+                        style="background-image: url(https://recipe-catalog.ru/wp-content/uploads/2019/01/uzbek-manties-860x380.jpg)">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Чак-Чак</h4>
-                        <p class="card-text">Хочешь чего-нибудь сладкого к чаю? Попробуй наш фирменный чак-чак!
-                            Идеальные куски теста похожие друг на друга как братья близнецы искупавшиеся в горячей
-                            маслянной ванне, а затем прыгнувшие в бассейн с медом до полного застывания.</p><button
-                            class="btn btn-primary" type="button">Button</button>
+                        <h4 class="card-title">Манты</h4>
+                        <p class="card-text">Большой брат пельменя. Очередной кусок теста, мяса и картошки, но на
+                            удивление сделан на пару.</p><button class="btn btn-primary" type="button">150 rub</button>
                     </div>
                 </div>
                 <div class="card">
                     <div class="img"
-                        style="background-image: url(https://storage.delikateska.ru/cache/7/c/lapsha-domashnyaya.jpg/w480.jpg)">
+                        style="background-image: url(https://i.pinimg.com/originals/e5/0e/a4/e50ea4a63368ffa89ff7a7ff43a9b7c7.jpg)">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Куриный суп</h4>
-                        <p class="card-text">Помнишь тот самый вкус наваристого куриного супа который варила твоя мама в
-                            детстве? Наши техники воссоздали химическую формулу маминой любви и добавляют его в каждую
-                            порцию вашего любимого супа. Отборная куриная грудка идет на приготовление бульона, а ее
-                            куриные собратья завидуют ей, ведь только ее отобрали среди всех прочих кандидатов на наш
-                            суп!</p><button class="btn btn-primary" type="button">Button</button>
+                        <h4 class="card-title">Бармак</h4>
+                        <p class="card-text">Сладкий кусок теста с начинкой. Падающая тень от чак-чака затмила эти
+                            прекрасные мучные изделия.</p><button class="btn btn-primary" type="button">300 rub</button>
                     </div>
                 </div>
             </div>
             <div class="card-group">
                 <div class="card">
-                    <div class="img"
-                        style="background-image: url(https://kopilka-kulinara.ru/upload/information_system_52/4/8/3/item_483/item_483.jpg)">
+                    <div class="img" style="background-image: url(
+                        https://m.kedem.ru/photo/recipe/rnamebig/pomidory-s-syrom-i-chesnokom.jpg)">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Эчпочмак</h4>
-                        <p class="card-text">Изысканный эчпочмак по старинному рецепту твоей татарской прабабушки. Из
-                            натуральной говядины, с любовью замешенным тестом, мелко порезанным луком, картошкой и
-                            специями. Ощути Татарстан в каждом новом укусе!</p><button class="btn btn-primary"
-                            type="button">Button</button>
+                        <h4 class="card-title">Помидоры с чесноком и сыром</h4>
+                        <p class="card-text">Это просто помидор, чеснок, сыр и мазик</p><button class="btn btn-primary"
+                            type="button">400 rub</button>
                     </div>
                 </div>
                 <div class="card">
                     <div class="img"
-                        style="background-image: url(https://scontent-lhr8-1.xx.fbcdn.net/v/t1.0-9/26166784_296920390713244_1777290288629020279_n.jpg?_nc_cat=102&_nc_sid=dd9801&_nc_ohc=iFOeQXp3r5YAX-aLN0L&_nc_ht=scontent-lhr8-1.xx&oh=e5776e0d88ac57e17bd2172e0316c445&oe=5F1D5B08)">
+                        style="background-image: url(https://i.pinimg.com/originals/ea/f6/93/eaf693fc5f1fbd18b8e243ad7584e8bb.jpg)">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Чак-Чак</h4>
-                        <p class="card-text">Хочешь чего-нибудь сладкого к чаю? Попробуй наш фирменный чак-чак!
-                            Идеальные куски теста похожие друг на друга как братья близнецы искупавшиеся в горячей
-                            маслянной ванне, а затем прыгнувшие в бассейн с медом до полного застывания.</p><button
-                            class="btn btn-primary" type="button">Button</button>
+                        <h4 class="card-title">Азу по татарски</h4>
+                        <p class="card-text">Как обычное азу, но с шепоткой татарского колорита. </p><button
+                            class="btn btn-primary" type="button">270 rub</button>
                     </div>
                 </div>
                 <div class="card">
                     <div class="img"
-                        style="background-image: url(https://storage.delikateska.ru/cache/7/c/lapsha-domashnyaya.jpg/w480.jpg)">
+                        style="background-image: url(https://static.1000.menu/img/content-v2/5b/9e/42698/zur-belish-tatarskii-pirog_1579963262_27_max.jpg)">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Куриный суп</h4>
-                        <p class="card-text">Помнишь тот самый вкус наваристого куриного супа который варила твоя мама в
-                            детстве? Наши техники воссоздали химическую формулу маминой любви и добавляют его в каждую
-                            порцию вашего любимого супа. Отборная куриная грудка идет на приготовление бульона, а ее
-                            куриные собратья завидуют ей, ведь только ее отобрали среди всех прочих кандидатов на наш
-                            суп!</p><button class="btn btn-primary" type="button">Button</button>
+                        <h4 class="card-title">Зур-Бэлиш</h4>
+                        <p class="card-text">Ты хочешь больше одного эчпочмака? Представляем вам Зур-Бэлиш, перекаченный
+                            стеройдами эчпочмак который думает что он пирог.</p><button class="btn btn-primary"
+                            type="button">600 rub</button>
                     </div>
                 </div>
             </div>
-            <div class="card-group">
-                <div class="card" style="width: 635px;"><!-- тут короче костыль пока -->
+            <!-- <div class="card-group"> -->
+            <!--  <div class="card">
+                     тут короче костыль пока 
                     <div class="img"
-                        style="background-image: url(https://kopilka-kulinara.ru/upload/information_system_52/4/8/3/item_483/item_483.jpg)">
+                        style="background-image: url(https://static.1000.menu/img/content-v2/78/b7/1731/kjstjbji-s-kartofelem_1577257150_16_max.jpg)">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Эчпочмак</h4>
-                        <p class="card-text">Изысканный эчпочмак по старинному рецепту твоей татарской прабабушки. Из
-                            натуральной говядины, с любовью замешенным тестом, мелко порезанным луком, картошкой и
-                            специями. Ощути Татарстан в каждом новом укусе!</p><button class="btn btn-primary"
+                        <h4 class="card-title">Кыстыбый</h4>
+                        <p class="card-text">О нет! У нас украли мясо, что же нам делать? Не бойтесь, ведь у нас
+                            осталось еще тесто с картошкой</p><button class="btn btn-primary"
                             type="button">Button</button>
                     </div>
+                </div> -->
+            <!-- </div> -->
+        </div>
+    </div>
+    <div class="d-none d-sm-flex justify-content-center"> Блюдо дня!</div>
+    <div class="sets justify-content-center align-content-center d-flex">
+        <div class="card-group">
+            <div class="card">
+                <!-- тут короче костыль пока  -->
+                <div class="img"
+                    style="background-image: url(https://static.1000.menu/img/content-v2/78/b7/1731/kjstjbji-s-kartofelem_1577257150_16_max.jpg)">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Кыстыбый</h4>
+                    <p class="card-text">О нет! У нас украли мясо, что же нам делать? Не бойтесь, ведь у нас
+                        осталось еще тесто с картошкой</p><button class="btn btn-primary" type="button">80 rub</button>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="footer-basic">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
