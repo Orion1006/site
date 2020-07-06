@@ -25,7 +25,7 @@
             </div>
         </div>
     </nav>
-    <div class="carousel slide" data-ride="carousel" id="carousel-1" >
+    <div class="carousel slide" data-ride="carousel" id="carousel-1">
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active"><img class="w-100 d-block"
                     src="https://i.kym-cdn.com/photos/images/original/001/497/002/38c.png" alt="Slide Image"></div>
@@ -120,7 +120,7 @@
                             <div class="col-md-6 mb-3">
                                 <button class="btn btn-primary" onclick="search()" type="submit">Найти</button>
                             </div>
-                            
+
                         </div>
 
 
@@ -239,8 +239,8 @@
                         <h4 class="card-title">Эчпочмак</h4>
                         <p class="card-text">Изысканный эчпочмак по старинному рецепту твоей татарской прабабушки. Из
                             натуральной говядины, с любовью замешенным тестом, мелко порезанным луком, картошкой и
-                            специями. Ощути Татарстан в каждом новом укусе!</p><button
-                            class="btn btn-primary" type="button">75 rub</button>
+                            специями. Ощути Татарстан в каждом новом укусе!</p><button class="btn btn-primary"
+                            type="button">75 rub</button>
 
                     </div>
                 </div>
@@ -370,7 +370,157 @@
             </div>
         </div>
     </div>
-
+    <div class="itog row">
+        <p class="pt-3 ml-5">Итого: 0 руб.</p>
+    </div>
+    <div class="col-md d-flex justify-content-center">
+        <button type="button" class="btn mt-3" data-toggle="modal" data-target="#itogo" id="deliveryform">Оформить
+            заказ</button>
+    </div>
+    </div>
+    </div>
+    <div class="modal fade" id="itogo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Оформление заказа</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>
+                        Позиции заказа
+                    </h5>
+                    <div id="modalca">
+                    </div>
+                    <h5>Инфа о предприятии</h5>
+                    <div class="row">
+                        <div class="col">Название</div>
+                        <div class="col" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Административный округ</div>
+                        <div class="col" id=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Район</div>
+                        <div class="col" id=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Адрес</div>
+                        <div class="col" id=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Рейтинг</div>
+                        <div class="col" id=""></div>
+                    </div>
+                    <h5>Доставка</h5>
+                    <form id="delivery">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="deliveryzone">
+                                        Зона доставки
+                                    </label>
+                                </div>
+                                <div class="col">
+                                    <select name="deliveryzone" id="deliveryzone" class="form-control">
+                                        <option selected>Первая Зона</option>
+                                        <option>Вторая Зона</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="adress">
+                                        Адрес доставки
+                                    </label>
+                                </div>
+                                <div class="col">
+                                    <textarea name="adress" id="adress" class="form-control " rows="2">
+                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="pricedel">
+                                        Стоимость доставки
+                                    </label>
+                                </div>
+                                <div class="col">
+                                    <input value="250" disabled name="pricedel" id="pricedel" class="form-control " />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="fio">
+                                        ФИО получателя
+                                    </label>
+                                </div>
+                                <div class="col">
+                                    <input name="fio" id="fio" class="form-control"
+                                        placeholder="Фамилия Имя Отчество" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="priceend">
+                                        Итого
+                                    </label>
+                                </div>
+                                <div class="col">
+                                    <input value="0" disabled name="priceend" id="priceend"
+                                        class="form-control-plaintext price " />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="priceend">
+                                    Если холодный
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input value="0" disabled name="pricecold" id="pricecold"
+                                    class="form-control-plaintext" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="priceend">
+                                    Быстрая доставка
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input value="Нет" disabled type="text" name="contactless" id="contactlessmodal"
+                                    class="form-control-plaintext" />
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn " data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn ">Подтвердить</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="footer-basic">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
