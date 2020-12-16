@@ -1,0 +1,15 @@
+.card {
+  max-width: 30%;
+  margin: 20px auto;
+}
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.carousel img {
+  max-height: 40vh;
+  background-size: contain;
+}
